@@ -528,25 +528,90 @@ public class General implements Module {
         Resource.sendMessage(chat, String.format(options[chosen], question));
     }
     
+    private static final boolean JUSTIS_KNOWS_REFLECTION = false;
+
+    private static final String noarray0 = "Guys, Can confirm. Penis exersizes DO work.";
+    private static final String noarray1 = "It's only been a week and there is a noticable difference.";
+    private static final String noarray2 = "Excersizing my phallus.";
+    private static final String noarray3 = "Any lady of mine is gunna feel real lucky.";
+    private static final String noarray4 = "If only you guys were as passionate about giving your women pleasure.";
+    private static final String noarray5 = "FYI, I have plenty of ladies.";
+    private static final String noarray6 = "Any women will apreciate your effort. Knowing you care.";
+    private static final String noarray7 = "I'm good at what I do. ;)";
+    private static final String noarray8 = "I expect lots of cake!";
+    private static final String noarray9 = "We could be sex buddies!!! Makin porn together!!";
+    private static final String noarray10 = "All our sex toys are made from 100% ultra-premium custom forumulated silicone; garenteed to last a lifetime.";
+    private static final String noarray11 = "Easy To Clean, Eco-Friendly, Hypoallergenic, Hygienic, Boilable, Bleachable and Dishwasher Safe. ;D";
+    private static final String noarray12 = "Just in case you ever wanted to wash your vibrator with your eating utensils. I know I do.";
+    
     @Command(name = "phallusexercise", alias = {"whatwouldjustissay"})
     public static void cmdphallusexercise(ChatMessage message, @Optional String special) {
-        String[] options = new String[] {
-        		"Guys, Can confirm. Penis exersizes DO work.",
-        		"It's only been a week and there is a noticable difference.",
-        		"Excersizing my phallus.",
-        		"Any lady of mine is gunna feel real lucky.",
-        		"If only you guys were as passionate about giving your women pleasure.",
-        		"FYI, I have plenty of ladies.",
-        		"Any women will apreciate your effort. Knowing you care.",
-        		"I'm good at what I do. ;)",
-        		"I expect lots of cake!",
-        		"We could be sex buddies!!! Makin porn together!!",
-        		"All our sex toys are made from 100% ultra-premium custom forumulated silicone; garenteed to last a lifetime.",
-        		"Easy To Clean, Eco-Friendly, Hypoallergenic, Hygienic, Boilable, Bleachable and Dishwasher Safe. ;D",
-        		"Just in case you ever wanted to wash your vibrator with your eating utensils. I know I do."};
-        int chosen = ThreadLocalRandom.current().nextInt(options.length);
-
-        Resource.sendMessage(message, options[chosen]);
+    
+        int chosen = ThreadLocalRandom.current().nextInt(13);
+    
+        String choice;
+        // For extra cringe:
+        if (JUSTIS_KNOWS_REFLECTION)
+        {
+            try 
+            {
+                Field field = General.class.getDeclaredField("noarray" + chosen);
+                field.setAccessible(true);
+                choice = (String) field.get(null);
+            }
+            catch (NoSuchFieldException | IllegalAccessException ex) // To be fair, I cannot care less. It's supposed to be shit anyway
+            {
+                choice = "Reflection was kill";
+            }
+        }
+        else 
+        {
+            switch (chosen)
+            {
+                case 0:
+                    choice = noarray0;
+                    break;
+                case 1:
+                    choice = noarray1;
+                    break;
+                case 2:
+                    choice = noarray2;
+                    break;
+                case 3:
+                    choice = noarray3;
+                    break;
+                case 4:
+                    choice = noarray4;
+                    break;
+                case 5:
+                    choice = noarray5;
+                    break;
+                case 6:
+                    choice = noarray6;
+                    break;
+                case 7:
+                    choice = noarray7;
+                    break;
+                case 8:
+                    choice = noarray8;
+                    break;
+                case 9:
+                    choice = noarray9;
+                    break;
+                case 10:
+                    choice = noarray10;
+                    break;
+                case 11:
+                    choice = noarray11;
+                    break;
+                case 12:
+                    choice = noarray12;
+                    break;
+                default:
+                    choice = "Math is kill";
+            }
+        }
+        Resource.sendMessage(message, choice);
     }
     
     @Command(name = "(?i)ayy", exact = false, command = false)
